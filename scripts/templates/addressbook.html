@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="abook.css">
+
+
+  <title>Address Book</title>
+</head>
+<header>
+  <h3>Address Book</h3>
+</header>
+<body>
+
+  <div class="container">
+    {% for contact in CONTACTS["contacts"] %}
+      {% if contact.fname %}
+        <div>First Name: {{contact.fname}}</div>
+      {% else %}
+        <h3>No name</h3>
+      {% endif %}
+      {% if contact.fname %}
+        <div>Last Name: {{contact.lname}}</div>
+      {% else %}
+        <h3>No name</h3>
+      {% endif %}
+      {% if contact.fname %}
+        <div>Phone Number: {{contact.number}}</div>
+      {% else %}
+        <h3>No name</h3>
+      {% endif %}
+      {% if contact.fname %}
+        <div>Email: {{contact.email}}</div>
+      {% else %}
+        <h3>No name</h3>
+      {% endif %}
+      <br><br>
+    {% endfor %}
+    
+  </div>
+
+  <h5>Enter in a new contact</h5>
+  <form  action="/addressbookadd" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Info needed</label>
+        <input type="text" name="fname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter first name"><br>
+        <input type="text" name="lname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Last Name"><br>
+        <input type="tel" name="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required=""><br>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email"><br>
+        <button type="submit" class="btn btn-primary">Add Contact</button>
+      </div>
+  </form>
+
+    <h5>Delete a contact</h5>
+  <form  action="/addressbookdel" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Enter the Phone Number of the Contact You would like to delete</label>
+        <input type="text" name="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone Number"><br>
+        <button type="submit" class="btn btn-primary">Delete Contact</button>
+      </div>
+  </form>
+
+
+
+  
+
+
+
+</body>
+</html
+
